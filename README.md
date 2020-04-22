@@ -46,5 +46,5 @@ do-this
 
 This function is a wildcard that will randomly select one of the functions and produce a search. 
 
-![spotify-this](/images/spotify-this screenshot.png)
-![do-this](/images/do-this screenshot.png)
+<img src="images/spotify-this screenshot.png">
+<img src="images/do-this screenshot.png">
