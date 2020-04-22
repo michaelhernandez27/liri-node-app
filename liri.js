@@ -82,3 +82,36 @@ function spotifyThisSong() {
         };
     });
 }
+
+function movieThis() {
+    console.log(`\n - - - - -\n\nSEARCHING FOR..."${userQuery}"`);
+    if (!userQuery) {
+        userQuery = "mr nobody";
+    };
+    
+    request("http://www.omdbapi.com/?t=" + userQuery + "&apikey=trilogy", function (error, response, body) {
+        var userMovie = JSON.parse(body);
+
+        var ratingsArr = userMovie.Ratings;
+        if (ratingsArr.length > 2) {}
+
+        if (!error && response.statusCode === 200) {
+            console.log(`\nTitle: ${userMovie.Title}\nCast: ${userMovie.Actors}\nReleased: ${userMovie.Year}\nIMDb Rating: ${userMovie.imdbRating}\nRotten Tomatoes Rating: ${userMovie.Ratings[1].Value}\nCountry: ${userMovie.Country}\nLanguage: ${userMovie.Language}\nPlot: ${userMovie.Plot}\n\n- - - - -`)
+        } else {
+            return console.log("Movie able to be found. Error:" + error)
+        };
+    })
+};
+
+function doThis() {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error);
+        }
+        var dataArr = data.split(",");
+
+        userInput = dataArr[0];
+        userQuery = dataArr[1];
+        userCommand(userInput, userQuery);
+    });
+};
